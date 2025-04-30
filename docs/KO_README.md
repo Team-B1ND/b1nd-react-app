@@ -28,6 +28,12 @@ B1ND AUTH TEMPLATE은 인증 관련 기능을 빠르게 구현할 수 있는 템
     No
 
 
+### HOW TO INSTALL
+![화면 기록 2025-03-25 오전 11 41 31](https://github.com/user-attachments/assets/ea5a7a11-705a-48d4-812b-c0d8b8df8ca8)
+
+
+
+
 ### USER EDITING POINT
 
 1. `src/config/config.json`의 `server`속성을 자신의 API BASE_URL로 변경해주세요.

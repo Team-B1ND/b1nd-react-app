@@ -20,6 +20,7 @@ Creating an issue is a great way to track bugs, improvements, or tasks that need
        - Expected behavior
        - Actual behavior (for bug reports)
        - Additional relevant information (e.g., screenshots, environment details, etc.)
+       - ![스크린샷 2025-03-24 오후 4 02 34](https://github.com/user-attachments/assets/d228d2da-9328-4766-b1b9-2aa3c8d7a9a2)
 
 ## Tips for Writing an Issue
 
