@@ -1,6 +1,6 @@
 {
   "name": "b1nd-react-app",
-  "version": "1.2.21",
+  "version": "1.2.22",
   "main": "generate-app",
 "scripts": {
   "release": "ncc build ./index.ts -o ./dist/ --minify --no-cache", 
@@ -25,9 +25,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Team-B1ND/DODAM_AUTH_TEMPLATE"
+    "url": "https://github.com/Team-B1ND/b1nd-react-app.git"
   },
-  "homepage": "https://github.com/Team-B1ND/DODAM_AUTH_TEMPLATE",
+  "homepage": "https://github.com/Team-B1ND/b1nd-react-app",
   "description": "React BoilerPlate for DGSW Students made by B1ND",
   "devDependencies": {
     "@types/node": "20.14.2",
