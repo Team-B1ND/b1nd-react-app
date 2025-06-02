@@ -1,6 +1,6 @@
-## B1ND AUTH TEMPLATE
+## b1nd-react-app
 # Overview
-B1ND AUTH TEMPLATE is a template that allows you to quickly implement authentication-related functionality. This project is written in React and is configured with Axios and interceptors for efficient API communication. The project structure is extensible and can be used in various environments.
+b1nd-react-app is a template that allows you to quickly implement authentication-related functionality. This project is written in React and is configured with Axios and interceptors for efficient API communication. The project structure is extensible and can be used in various environments.
 
 ## HOW TO USE?
 
@@ -81,31 +81,31 @@ You can start with `npx b1nd-react-app [projectname]`.
 ## Framework-Specific Architectures
  # REACT
  For React, the project follows a component-based architecture that utilizes hooks, context, and state management as necessary. Here is the general structure for React
-[GOTO-ARCHITECTURES](https://github.com/Team-B1ND/B1ND-AUTH-TEMPLATE/tree/main/docs/REACT_ARCHITECTURES.md)
+[GOTO-ARCHITECTURES](https://github.com/Team-B1ND/b1nd-react-app/tree/main/docs/REACT_ARCHITECTURES.md)
 
  # VITE
  Vite is a build tool that focuses on speed and performance. The structure is similar to React, but it is optimized for fast development and builds. Here is the general structure for a Vite project
-[GOTO-ARCHITECTURES](https://github.com/Team-B1ND/B1ND-AUTH-TEMPLATE/tree/main/docs/VITE_ARCHITECTURES.md)
+[GOTO-ARCHITECTURES](https://github.com/Team-B1ND/b1nd-react-app/tree/main/docs/VITE_ARCHITECTURES.md)
 
 # WEBPACK
  Webpack is a bundler that requires more configuration but is extremely flexible. The structure includes configurations for handling assets, code splitting, and optimization. 
-[GOTO-ARCHITECTURES](https://github.com/Team-B1ND/B1ND-AUTH-TEMPLATE/tree/main/docs/WEBPACK_ARCHITECTURES.md)
+[GOTO-ARCHITECTURES](https://github.com/Team-B1ND/b1nd-react-app/tree/main/docs/WEBPACK_ARCHITECTURES.md)
 
 
 
 ## Community
 
-The B1ND AUTH TEMPLATE community can be found on [GitHub Discussions](https://github.com/Team-B1ND/B1ND-AUTH-TEMPLATE/discussions), where you can ask questions, share ideas, and showcase your projects with other community members.
+The b1nd-react-app community can be found on [GitHub Discussions](https://github.com/Team-B1ND/b1nd-react-app/discussions), where you can ask questions, share ideas, and showcase your projects with other community members.
 
-Please note that our Code of Conduct applies to all B1ND AUTH TEMPLATE community channels. We strongly encourage all users to read and adhere to the [Code of Conduct ](https://github.com/Team-B1ND/B1ND-AUTH-TEMPLATE/tree/main/docs/CODE_OF_CONDUCT.md) to ensure a respectful and productive environment for everyone.
+Please note that our Code of Conduct applies to all b1nd-react-app community channels. We strongly encourage all users to read and adhere to the [Code of Conduct ](https://github.com/Team-B1ND/b1nd-react-app/tree/main/docs/CODE_OF_CONDUCT.md) to ensure a respectful and productive environment for everyone.
 
 
 ## Contributing
 
-Contributions to B1ND AUTH TEMPLATE are welcome and highly appreciated. However, before you jump right into it, we would like you to review our [Contribution Guidelines](https://github.com/Team-B1ND/B1ND-AUTH-TEMPLATE/tree/main/docs/contributing.md) to ensure a smooth experience contributing to the project.
+Contributions to b1nd-react-app are welcome and highly appreciated. However, before you jump right into it, we would like you to review our [Contribution Guidelines](https://github.com/Team-B1ND/b1nd-react-app/tree/main/docs/contributing.md) to ensure a smooth experience contributing to the project.
 
 ### Good First Issues:
-We have a list of good first issues that are perfect for newcomers and beginners. These issues are relatively limited in scope, making them a great starting point to gain experience, understand the contribution process, and get familiar with the codebase. Check out the list of [good first issues](https://github.com/Team-B1ND/B1ND-AUTH-TEMPLATE/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22) and start contributing today! [How to write an issue](https://github.com/Team-B1ND/B1ND-AUTH-TEMPLATE/tree/main/docs/ISSUE.md)
+We have a list of good first issues that are perfect for newcomers and beginners. These issues are relatively limited in scope, making them a great starting point to gain experience, understand the contribution process, and get familiar with the codebase. Check out the list of [good first issues](https://github.com/Team-B1ND/b1nd-react-app/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22) and start contributing today! [How to write an issue](https://github.com/Team-B1ND/b1nd-react-app/tree/main/docs/ISSUE.md)
 
 ---
 
@@ -114,7 +114,7 @@ We look forward to your contributions!
 
 # DOCS
 
-[한국어 DOCS](https://github.com/Team-B1ND/B1ND-AUTH-TEMPLATE/tree/main/docs/KO_README.md)
+[한국어 DOCS](https://github.com/Team-B1ND/b1nd-react-app/tree/main/docs/KO_README.md)
 
 
-- [Test Documentation](https://github.com/Team-B1ND/B1ND-AUTH-TEMPLATE/tree/main/docs/testing.md)
+- [Test Documentation](https://github.com/Team-B1ND/b1nd-react-app/tree/main/docs/testing.md)

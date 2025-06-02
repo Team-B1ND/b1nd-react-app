@@ -2,7 +2,7 @@ name: PR Opened Notification
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened]  
 
 permissions:
   issues: write

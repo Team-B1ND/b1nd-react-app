@@ -2,8 +2,7 @@ name: 'Stale Issue Manager'
 
 on:
   schedule:
-    - cron: '0 0 * * *' 
-
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
@@ -14,32 +13,23 @@ jobs:
   stale:
     runs-on: ubuntu-latest
     steps:
-
       - name: 'Mark and Close Stale Issues'
         uses: actions/stale@v9
         with:
-          repo-token: ${{ secrets.USER_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-          
-          days-before-issue-stale: 30           
-          days-before-issue-close: 7            
-          stale-issue-label: 'stale'            
+          days-before-issue-stale: 30
+          days-before-issue-close: 7
+          stale-issue-label: 'stale'
           stale-issue-message: '이 이슈는 30일 동안 활동이 없어 자동으로 Stale로 지정되었습니다. 7일 내 업데이트가 없으면 자동으로 닫힙니다.'
           close-issue-message: '활동이 없어 이슈가 자동으로 종료되었습니다. 문제가 지속되면 새 이슈를 만들어 주세요.'
 
-          
           exempt-issue-labels: 'needs reproduction'
-          days-before-exempt-issue-stale: 1
-          days-before-exempt-issue-close: 3
-          exempt-issue-message: '재현 가능한 예제가 없어서 이슈를 종료합니다. 문제가 지속되면 새 이슈를 작성해 주세요.'
 
-          
           days-before-pr-stale: -1
           days-before-pr-close: -1
 
-          
           operations-per-run: 300
 
-          
           remove-issue-stale-when-updated: true
           labels-to-add-when-unstale: 'not stale'
