@@ -39,6 +39,9 @@ importers:
       inquirer:
         specifier: ^7.3.3
         version: 7.3.3
+      nanospinner:
+        specifier: ^1.2.2
+        version: 1.2.2
       path:
         specifier: ^0.12.7
         version: 0.12.7
@@ -262,6 +265,9 @@ packages:
 
   mute-stream@0.0.8:
     resolution: {integrity: sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==}
+
+  nanospinner@1.2.2:
+    resolution: {integrity: sha512-Zt/AmG6qRU3e+WnzGGLuMCEAO/dAu45stNbHY223tUxldaDAeE+FxSPsd9Q+j+paejmm0ZbrNVs5Sraqy3dRxA==}
 
   npm-run-path@6.0.0:
     resolution: {integrity: sha512-9qny7Z9DsQU8Ou39ERsPU4OZQlSTP47ShQzuKZ6PRXpYLtIFgl/DEBYEXKlvcEa+9tHVcK8CF81Y2V72qaZhWA==}
@@ -660,6 +666,10 @@ snapshots:
   minipass@7.1.2: {}
 
   mute-stream@0.0.8: {}
+
+  nanospinner@1.2.2:
+    dependencies:
+      picocolors: 1.1.1
 
   npm-run-path@6.0.0:
     dependencies:
