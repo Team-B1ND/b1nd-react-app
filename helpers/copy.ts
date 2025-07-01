@@ -16,11 +16,6 @@ export function copyDir(src: string, dest: string) {
         const gitignoreContent = readFileSync(srcFile, "utf8");
         writeFileSync(join(dest, ".gitignore"), gitignoreContent);
       } 
-      // gitignore.template 파일을 .gitignore로 변환
-      else if (file === "gitignore.template") {
-        const gitignoreContent = readFileSync(srcFile, "utf8");
-        writeFileSync(join(dest, ".gitignore"), gitignoreContent);
-      }
       // 일반 파일 복사
       else {
         copyFileSync(srcFile, destFile);

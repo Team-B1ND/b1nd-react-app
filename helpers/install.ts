@@ -1,7 +1,6 @@
 import { performance } from "node:perf_hooks";
 import { bold, green, cyan } from "picocolors";
 import { spawn } from "child_process";
-import { promisify } from "util";
 
 class SimpleSpinner {
   private interval?: NodeJS.Timeout;
@@ -18,15 +17,15 @@ class SimpleSpinner {
     if (this.isSpinning) return this;
     
     this.isSpinning = true;
-    process.stdout.write('\x1B[?25l'); // Hide cursor
+    process.stdout.write('\x1B[?25l'); 
     
-    // 즉시 첫 프레임 출력
+    
     this.render();
     
     this.interval = setInterval(() => {
       this.currentFrame = (this.currentFrame + 1) % this.frames.length;
       this.render();
-    }, 80); // 80ms로 더 빠르게 조정
+    }, 80); // 80ms
     
     return this;
   }
@@ -34,8 +33,8 @@ class SimpleSpinner {
   private render() {
     if (!this.isSpinning) return;
     
-    // 현재 줄을 완전히 지우고 새로 그리기
-    process.stdout.write('\r\x1B[K'); // Clear line
+    
+    process.stdout.write('\r\x1B[K'); 
     process.stdout.write(this.frames[this.currentFrame] + ' ' + this.text);
   }
 
@@ -62,7 +61,7 @@ class SimpleSpinner {
       clearInterval(this.interval);
       this.interval = undefined;
     }
-    process.stdout.write('\x1B[?25h'); // Show cursor
+    process.stdout.write('\x1B[?25h'); 
   }
 }
 
@@ -70,7 +69,7 @@ function runCommand(command: string, args: string[], cwd: string): Promise<void>
   return new Promise((resolve, reject) => {
     const child = spawn(command, args, {
       cwd,
-      stdio: 'pipe', // 출력을 파이프로 처리
+      stdio: 'pipe', 
       shell: true
     });
 
@@ -104,7 +103,6 @@ export async function installDependencies(
   const startTime = performance.now();
 
   try {
-    // 패키지 매니저별 명령어 설정
     let command: string;
     let args: string[];
 

@@ -30,7 +30,6 @@ export function isFolderEmpty(root: string, name: string): boolean {
     '.vscode',
     '.env.example',
     '.env.local.example',
-    // 추가로 허용할 파일들
     'package.json',
     'tsconfig.json',
     'jsconfig.json',
