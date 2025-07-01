@@ -49,8 +49,8 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm  
 
-      - name: Install dependencies
-        run: pnpm install  
+      - name: Build project
+        run: pnpm run build
 
       - name: Publish to NPM
         run: |
