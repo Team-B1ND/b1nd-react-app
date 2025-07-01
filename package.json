@@ -2,12 +2,12 @@
   "name": "b1nd-react-app",
   "version": "1.2.22",
   "main": "generate-app",
-"scripts": {
-  "release": "ncc build ./index.ts -o ./dist/ --minify --no-cache", 
-  "prepublishOnly": "turbo run build",
-  "build": "pnpm run release && node copy-files.js && ncc build ./index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
-  "test": "cd ./test && npx ts-node ../index.ts test1"
-},
+  "scripts": {
+    "release": "ncc build ./index.ts -o ./dist/ --minify --no-cache",
+    "prepublishOnly": "turbo run build",
+    "build": "pnpm run release && node copy-files.js && ncc build ./index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
+    "test": "cd ./test && npx ts-node ../index.ts test1"
+  },
   "type": "commonjs",
   "bin": {
     "b1nd-react-app": "./dist/index.js"
@@ -39,6 +39,7 @@
     "execa": "^9.3.1",
     "fs": "0.0.1-security",
     "inquirer": "^7.3.3",
+    "nanospinner": "^1.2.2",
     "path": "^0.12.7",
     "picocolors": "^1.1.1",
     "prompts": "^2.4.2",
