@@ -1,23 +1,21 @@
 {
   "name": "b1nd-react-app",
-  "version": "1.2.23",
+  "version": "1.2.24",
   "main": "generate-app",
-  "scripts": {
-    "release": "ncc build ./index.ts -o ./dist/ --minify --no-cache",
-    "prepublishOnly": "turbo run build",
-    "build": "pnpm run release && node copy-files.js && ncc build ./index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
-    "test": "cd ./test && npx ts-node ../index.ts test1"
-  },
+ "scripts": {
+  "clean": "rimraf dist",
+  "build:main": "esbuild index.ts --bundle --platform=node --target=node18 --outfile=dist/index.js --format=cjs --banner:js=\"#!/usr/bin/env node\"",
+  "copy-files": "node scripts/copy-files.js",
+  "build": "pnpm run clean && pnpm run build:main && pnpm run copy-files",
+  "prepublishOnly": "pnpm run build"
+},
   "type": "commonjs",
+  "files": [
+    "dist"
+  ],
   "bin": {
     "b1nd-react-app": "./dist/index.js"
   },
-  "files": [
-    "dist",
-    ".gitignore",
-    ".gitkeep",
-    ".npmrc"
-  ],
   "keywords": [
     "react"
   ],
@@ -36,6 +34,7 @@
     "chalk": "^4.1.2",
     "child_process": "^1.0.2",
     "commander": "^12.1.0",
+    "esbuild": "^0.25.5",
     "execa": "^9.3.1",
     "fs": "0.0.1-security",
     "inquirer": "^7.3.3",
@@ -44,7 +43,6 @@
     "picocolors": "^1.1.1",
     "prompts": "^2.4.2",
     "rimraf": "^6.0.1",
-    "turbo": "^2.4.4",
     "typescript": "^5.8.2"
   },
   "engines": {
