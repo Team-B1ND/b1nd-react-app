@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { Command } from "commander";
 import { createProject } from "./helpers/create";
 import { green, cyan } from "picocolors";
@@ -24,7 +23,7 @@ program
   .option("--axios", "Include Axios", false)
   .option("--skip-install", "Skip dependency installation", false)
   .action(async (directory: string | undefined, options: ProgramOptions) => {
-    // 도움말 표시
+    
     if (!directory && process.argv.length === 2) {
       console.log(green("🚀 B1ND React App Creator"));
       console.log();
