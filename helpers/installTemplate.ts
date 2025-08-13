@@ -4,7 +4,8 @@ import { existsSync } from "fs";
 import { cyan } from "picocolors";
 import { copyDir } from "../helpers/copy";
 import { installDependencies } from "../helpers/install";
-import type { InstallTemplateArgs } from "../templates/types";
+import type { InstallTemplateArgs } from "./types";
+
 
 export async function installTemplate({
   appName,
@@ -16,8 +17,8 @@ export async function installTemplate({
   skipInstall,
 }: InstallTemplateArgs) {
   const templateName = useAxios ? `${bundler}-axios` : bundler;
-  const templatePath = resolve(__dirname, "..", "templates", templateName, language);
-
+  const templatePath = resolve(__dirname, "templates", templateName, language);
+  
   if (!existsSync(templatePath)) {
     console.error(`❌ Template does not exist: ${templatePath}`);
     process.exit(1);
