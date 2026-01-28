@@ -11,7 +11,6 @@
     "postinstall": "mv gitignore .gitignore || true"
   },
   "dependencies": {
-    "path": "^0.12.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
