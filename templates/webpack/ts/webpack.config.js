@@ -7,18 +7,17 @@ module.exports = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"],
         fallback: {
-            abc: false, 
-            crypto: require.resolve("crypto-browserify"), 
+            crypto: require.resolve("crypto-browserify"),
         },
         alias: {
             "@src": path.resolve(__dirname, "./src"),
         },
     },
     performance: {
-        hints: "warning", 
-        maxEntrypointSize: 51200000,
-        maxAssetSize: 51200000,
-      },
+        hints: "warning",
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000,
+    },
     module: {
         rules: [
             {
