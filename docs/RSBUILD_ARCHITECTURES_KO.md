@@ -326,7 +326,7 @@ npx tsc --noEmit
 3. webpack:// > ./ > src/ 로 이동
 4. 중단점 설정 및 디버깅
 
-### ESLint
+### ESLint (코드 품질 검사)
 
 ```bash
 npm run lint
@@ -337,6 +337,21 @@ npm run lint
 ```bash
 npm run lint -- --fix
 ```
+
+### Prettier (코드 포맷팅)
+
+```bash
+npm run format
+```
+
+Prettier 설정은 `.prettierrc`에 정의됩니다:
+- 프린트 너비: 100자
+- 탭 너비: 2칸
+- 후행 쉼표: ES5 스타일
+- 싱글 쿼트: 활성화
+- 화살표 함수: 가능하면 괄호 생략
+
+ESLint와 Prettier는 함께 작동하여 코드 품질과 일관된 스타일을 유지합니다.
 
 ## 일반적인 작업
 

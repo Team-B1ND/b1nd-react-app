@@ -1,5 +1,7 @@
 ## b1nd-react-app
 
+**Version: 1.3.1** (Latest)
+
 # Overview
 
 b1nd-react-app is a modern React boilerplate template powered by **Rsbuild** (default) or **Vite** for rapid development. It includes pre-configured authentication setup with Axios interceptors for seamless API communication. The project structure is extensible and optimized for both development and production environments.
@@ -92,6 +94,9 @@ npm run preview  # or yarn preview, pnpm preview, bun preview
 
 # Run linting
 npm run lint     # or yarn lint, pnpm lint, bun lint
+
+# Format code with Prettier
+npm run format   # or yarn format, pnpm format, bun format
 ```
 
 ### Installation Speed Comparison

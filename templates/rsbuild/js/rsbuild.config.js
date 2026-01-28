@@ -9,7 +9,7 @@ export default defineConfig({
       index: './src/main.jsx',
     },
     alias: {
-      '@src': path.resolve(process.cwd(), './src'),
+      '@src': path.resolve(__dirname, './src'),
     },
   },
   html: {

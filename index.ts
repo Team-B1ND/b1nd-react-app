@@ -15,7 +15,7 @@ const program = new Command();
 program
   .name("b1nd-react-app")
   .description("Create a new project with B1ND Boilerplate")
-  .version("1.0.0")
+  .version("1.3.1")
   .argument("[directory]", "Project directory (use '.' for current directory)")
   .option("--bundler <bundler>", "Choose bundler: rsbuild, vite, webpack, default", "rsbuild")
   .option("--language <language>", "Choose language: ts, js", "ts")

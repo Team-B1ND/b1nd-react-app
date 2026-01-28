@@ -326,7 +326,7 @@ Configuration in `tsconfig.app.json`:
 3. Navigate to webpack:// > ./ > src/
 4. Set breakpoints and debug
 
-### ESLint
+### ESLint (Code Quality)
 
 ```bash
 npm run lint
@@ -337,6 +337,21 @@ Fix auto-fixable issues:
 ```bash
 npm run lint -- --fix
 ```
+
+### Prettier (Code Formatting)
+
+```bash
+npm run format
+```
+
+Prettier configuration is defined in `.prettierrc`:
+- Print width: 100 characters
+- Tab width: 2 spaces
+- Trailing commas: ES5 style
+- Single quotes enabled
+- Arrow functions: omit parens when possible
+
+Both ESLint and Prettier work together to maintain code quality and consistent styling.
 
 ## Common Tasks
 
