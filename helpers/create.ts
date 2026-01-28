@@ -33,6 +33,7 @@ export async function createProject(dir: string, options: ProjectOptions = {}) {
 
   // 디렉토리가 비어있는지 확인
   if (existsSync(resolvedPath) && !isFolderEmpty(resolvedPath, projectName)) {
+    console.log(red("✖") + " Directory is not empty. Please use an empty directory.");
     process.exit(1);
   }
 
