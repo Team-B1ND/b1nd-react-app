@@ -7,8 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
     "preview": "vite preview",
-    "postinstall": "mv gitignore .gitignore || true"
+    "postinstall": "node ../../scripts/setup-gitignore.js"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -24,6 +25,7 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.13.0",
+    "prettier": "^3.4.2",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.1",
     "vite": "^6.0.3"
