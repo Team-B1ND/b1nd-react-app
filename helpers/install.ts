@@ -69,8 +69,7 @@ function runCommand(command: string, args: string[], cwd: string): Promise<void>
   return new Promise((resolve, reject) => {
     const child = spawn(command, args, {
       cwd,
-      stdio: 'pipe', 
-      shell: true
+      stdio: 'pipe'
     });
 
     let stderr = '';
