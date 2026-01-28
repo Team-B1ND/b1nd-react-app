@@ -51,9 +51,10 @@ export async function createProject(dir: string, options: ProjectOptions = {}) {
       name: "bundler",
       message: "Choose a bundler:",
       choices: [
-        { title: "Default", value: "default" },
-        { title: "Webpack", value: "webpack" },
+        { title: "Rsbuild (Recommended, Fastest) ⚡", value: "rsbuild" },
         { title: "Vite", value: "vite" },
+        { title: "Webpack", value: "webpack" },
+        { title: "Default (react-scripts)", value: "default" },
       ],
     },
     {

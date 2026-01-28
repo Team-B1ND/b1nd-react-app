@@ -17,7 +17,7 @@ program
   .description("Create a new project with B1ND Boilerplate")
   .version("1.0.0")
   .argument("[directory]", "Project directory (use '.' for current directory)")
-  .option("--bundler <bundler>", "Choose bundler: default, vite, webpack", "default")
+  .option("--bundler <bundler>", "Choose bundler: rsbuild, vite, webpack, default", "rsbuild")
   .option("--language <language>", "Choose language: ts, js", "ts")
   .option("--package-manager <pm>", "Choose package manager: npm, yarn, pnpm, bun")
   .option("--axios", "Include Axios", false)
