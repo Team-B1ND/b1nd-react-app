@@ -20,7 +20,6 @@ export default defineConfig({
     },
   },
   resolve: {
-    //추가
     alias: [
       {
         find: '@src',
