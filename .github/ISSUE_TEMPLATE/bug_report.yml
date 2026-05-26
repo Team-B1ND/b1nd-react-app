@@ -1,84 +1,56 @@
-name: Bug Report
-description: Report an issue in the B1ND-AUTH-TEMPLATE. ENG-VER
-type: Bug
+name: 🐛 Bug Report
+description: Report a bug or issue
+title: "[BUG] "
 body:
   - type: markdown
     attributes:
       value: |
-        📝 For feature requests, please open a discussion in the [ideas](https://github.com/Team-B1ND/B1ND-AUTH-TEMPLATE/discussions/categories/ideas) section.  
-        
-        📚 Documentation improvement requests should also be opened in the [ideas](https://github.com/Team-B1ND/B1ND-AUTH-TEMPLATE/discussions/categories/ideas) section.  
-        
-        ❗ Before opening a new issue, please search the [existing issues](https://github.com/Team-B1ND/B1ND-AUTH-TEMPLATE/issues) and upvote 👍 any related issues. This helps us resolve issues faster.  
-        
-        🆘 If you need help with your project, please start a discussion in the ["Help"](https://github.com/Team-B1ND/B1ND-AUTH-TEMPLATE/discussions/categories/help) section.
+        Thank you for reporting a bug! Please fill out the form below.
+        - Check [existing issues](https://github.com/Team-B1ND/b1nd-react-app/issues) first
+        - For feature requests, use [Discussions](https://github.com/Team-B1ND/b1nd-react-app/discussions)
+
+  - type: textarea
+    attributes:
+      label: Description
+      description: What's the bug? Clear and concise description.
+      placeholder: |
+        When I do X, Y happens instead of Z
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce the issue?
+      placeholder: |
+        1. Create a new project with `npm create b1nd-react-app@latest`
+        2. Select Rsbuild + TypeScript
+        3. Run `npm run dev`
+        4. ...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Expected vs Actual
+      description: What should happen vs what actually happens
+      placeholder: |
+        Expected: Dev server starts in 30 seconds
+        Actual: Dev server takes 2 minutes
+    validations:
+      required: true
 
   - type: input
     attributes:
-      label: Link to reproduction code
-      description: |
-        Provide a minimal reproduction that clearly demonstrates the issue.  
-        
-        **Failure to provide a valid reproduction link may result in the issue being closed.**
-      placeholder: 'https://github.com/user/my-minimal-b1nd-issue-reproduction'
+      label: Environment
+      description: Node version, OS, package manager, etc.
+      placeholder: "Node v20.10, Windows 11, npm 10.2.0"
     validations:
       required: false
 
   - type: textarea
     attributes:
-      label: Steps to reproduce
-      description: |
-        Describe the steps to reproduce the issue in detail.  
-        
-        If you use code blocks, ensure [syntax highlighting](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks#syntax-highlighting) is correct.  
-      placeholder: |
-        1. Start the project.
-        2. Click the X button.
-        3. Y action occurs.
+      label: Additional Info
+      description: Screenshots, logs, error messages, or anything else
     validations:
-      required: true
-
-  - type: textarea
-    attributes:
-      label: Actual vs. Expected behavior
-      description: |
-        Clearly describe what you expected to happen and what actually happened.  
-        
-        Include screenshots, logs, or other helpful information if available.  
-        
-        **Failure to provide complete information may result in the issue being closed.**
-      placeholder: |
-        Following the steps above, I expected A to happen, but B occurred instead.
-    validations:
-      required: true
-
-  - type: dropdown
-    attributes:
-      label: Affected area(s) (Select all that apply)
-      multiple: true
-      options:
-        - 'Not sure'
-        - 'Authentication (After)'
-        - 'Connection'
-        - 'UI Loading and Streaming'
-        - 'Markdown (MDX)'
-        - 'React functionality'
-        - 'Testing environment'
-        - 'Build (Turbopack)'
-        - 'TypeScript'
-        - 'Webpack'
-        - 'Documentation'
-    validations:
-      required: true
-
-  - type: textarea
-    attributes:
-      label: Additional context
-      description: |
-        Provide any additional information that may help us understand the issue.  
-        
-        For example:  
-        - What environment are you deploying to (Docker, AWS, etc.)?  
-        - Is the issue specific to certain browsers or platforms?  
-      placeholder: |
-        The issue only occurs in specific browsers and is not reproducible locally.
+      required: false

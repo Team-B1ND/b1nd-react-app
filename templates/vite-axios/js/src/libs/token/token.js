@@ -11,18 +11,12 @@ class Token {
   }
 
   setToken(key, value) {
-    document.cookie = `${key}=${encodeURIComponent(value)}; path=/`;
+    document.cookie = `${key}=${value}`;
     return document.cookie;
   }
 
   clearToken() {
-    const cookies = document.cookie.split("; ");
-    for (const cookie of cookies) {
-      const [cookieKey] = cookie.split("=");
-      if (cookieKey) {
-        document.cookie = `${cookieKey}=; path=/; max-age=0`;
-      }
-    }
+    document.cookie = "max-age=0";
   }
 }
 

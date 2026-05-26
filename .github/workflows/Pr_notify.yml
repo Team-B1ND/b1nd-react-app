@@ -41,6 +41,7 @@ jobs:
             });
 
       - name: Send Discord notification
+        if: ${{ secrets.DISCORD_WEBHOOK_URL != '' }}
         run: |
           prUrl="${{ github.event.pull_request.html_url }}"
           curl -X POST -H "Content-Type: application/json" \

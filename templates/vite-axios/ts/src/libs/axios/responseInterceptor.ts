@@ -31,7 +31,7 @@ const ResponseHandler = async (error: AxiosError) => {
       try {
         const { data: newAccessToken } = await axios.post(`${CONFIG.server}/refresh`, {
           refreshToken: usingRefreshToken,
-        }); //CHANGE YOUR API URL && BODY VALUE
+        });
         customAxios.defaults.headers.common[REQUEST_TOKEN_KEY] = `Bearer ${newAccessToken}`;
 
         token.setToken(ACCESS_TOKEN_KEY, newAccessToken);
@@ -49,7 +49,8 @@ const ResponseHandler = async (error: AxiosError) => {
         console.error("Failed to refresh access token:", error);
         token.clearToken();
         window.alert("세션이 만료되었습니다.");
-        window.location.href = "/login";
+        const loginPath = (CONFIG as any).loginPath || "/login";
+        window.location.href = loginPath;
       }
     }
   }
