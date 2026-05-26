@@ -17,21 +17,17 @@ interface ProjectOptions {
 export async function createProject(dir: string, options: ProjectOptions = {}) {
   const projectPath = dir || ".";
   const resolvedPath = resolve(process.cwd(), projectPath);
-  
-  // 현재 디렉토리인지 확인
+
   const isCurrentDir = projectPath === "." || resolvedPath === process.cwd();
-  
-  // 프로젝트 이름 결정
-  const projectName = isCurrentDir 
-    ? basename(process.cwd()) 
+
+  const projectName = isCurrentDir
+    ? basename(process.cwd())
     : basename(resolvedPath);
 
-  // 디렉토리가 존재하지 않으면 생성
   if (!existsSync(resolvedPath)) {
     mkdirSync(resolvedPath, { recursive: true });
   }
 
-  // 디렉토리가 비어있는지 확인
   if (existsSync(resolvedPath) && !isFolderEmpty(resolvedPath, projectName)) {
     process.exit(1);
   }
@@ -44,7 +40,7 @@ export async function createProject(dir: string, options: ProjectOptions = {}) {
   }
   console.log();
 
-  const validBundlers = ["default", "webpack", "vite"];
+  const validBundlers = ["rsbuild", "vite"];
   const validLanguages = ["ts", "js"];
   const validPkgManagers = ["npm", "yarn", "pnpm", "bun"];
 
@@ -65,8 +61,7 @@ export async function createProject(dir: string, options: ProjectOptions = {}) {
       name: "bundler",
       message: "Choose a bundler:",
       choices: [
-        { title: "Default", value: "default" },
-        { title: "Webpack", value: "webpack" },
+        { title: "Rsbuild (Recommended, Fastest) ⚡", value: "rsbuild" },
         { title: "Vite", value: "vite" },
       ],
     });
@@ -124,7 +119,7 @@ export async function createProject(dir: string, options: ProjectOptions = {}) {
   await installTemplate({
     appName: projectName,
     root: resolvedPath,
-    bundler: bundler as "default" | "vite" | "webpack",
+    bundler: bundler as "rsbuild" | "vite",
     language: language as "ts" | "js",
     useAxios,
     packageManager,

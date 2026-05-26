@@ -18,21 +18,46 @@ jobs:
           script: |
             const issue_number = context.payload.issue.number;
             const issue_title = context.payload.issue.title;
-            const issue_body = context.payload.issue.body;
+            const issue_body = context.payload.issue.body || '';
 
-            let labels = ['stale']; 
+            let labels = [];
 
-            
-            if (issue_title.includes('Docs:') || issue_body.includes('Report an issue with the B1ND-AUTH-TEMPLATE documentation')) {
-              labels.push('docs');
-            } else if (issue_body.includes('Report an issue in the B1ND-AUTH-TEMPLATE')) {
+            // 보안 이슈
+            if (issue_title.includes('🔒') || issue_title.includes('Security') || issue_body.includes('security')) {
+              labels.push('security');
+            }
+            // 버그 리포트
+            else if (issue_title.includes('🐛') || issue_title.includes('Bug') || issue_body.includes('bug')) {
               labels.push('bug');
             }
+            // 리팩토링/개선
+            else if (issue_title.includes('♻️') || issue_title.includes('Refactor') || issue_body.includes('refactor')) {
+              labels.push('refactor');
+            }
+            // 문서화
+            else if (issue_title.includes('📚') || issue_title.includes('Docs') || issue_body.includes('documentation')) {
+              labels.push('documentation');
+            }
+            // 테스트
+            else if (issue_title.includes('🧪') || issue_title.includes('Test') || issue_body.includes('test')) {
+              labels.push('test');
+            }
+            // 기능 개선
+            else if (issue_title.includes('✨') || issue_title.includes('Enhancement') || issue_body.includes('enhancement')) {
+              labels.push('enhancement');
+            }
 
-            
-            await github.rest.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issue_number,
-              labels: labels
-            });
+            // 라벨이 없으면 기본값 추가
+            if (labels.length === 0) {
+              labels.push('triage');
+            }
+
+            if (labels.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue_number,
+                labels: labels
+              });
+              console.log(`Added labels to issue #${issue_number}: ${labels.join(', ')}`);
+            }

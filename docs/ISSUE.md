@@ -1,30 +1,31 @@
-# HOW TO CREATE AN ISSUE
+# How to Create an Issue
 
-Creating an issue is a great way to track bugs, improvements, or tasks that need attention in a project. Follow the steps below to create an issue.
+Thank you for helping improve b1nd-react-app! Please follow these steps:
 
-## Steps to Create an Issue
+## Quick Steps
 
-1. **Navigate to the Issues Section**
-   - Go to the GitHub repository page.
-   - Click the [**"Issues"**](https://github.com/Team-B1ND/B1ND-AUTH-TEMPLATE/issues) tab in the repository menu.
+1. Go to [Issues](https://github.com/Team-B1ND/b1nd-react-app/issues)
+2. Click **"New issue"**
+3. Select issue type: **Bug Report** or **Documentation**
+4. Fill out the template clearly
+5. Submit!
 
-2. **Click "New Issue"**
-   - On the issues page, click the **"New issue"** button to create a new issue.
+## Before Creating an Issue
 
-3. **Fill Out the Issue Template**
-   - If a template is provided, select the appropriate one for your issue (bug report, feature request, etc.).
-   - Provide the necessary information:
-     - **Title**: Write a concise and descriptive title for the issue.
-     - **Description**: Describe the issue in detail. Include the following:
-       - Steps to reproduce the bug (if applicable)
-       - Expected behavior
-       - Actual behavior (for bug reports)
-       - Additional relevant information (e.g., screenshots, environment details, etc.)
+- Check [existing issues](https://github.com/Team-B1ND/b1nd-react-app/issues) first
+- For feature requests, use [Discussions](https://github.com/Team-B1ND/b1nd-react-app/discussions)
 
-## Tips for Writing an Issue
+## Tips
 
-- **Be Detailed**: When reporting a bug or issue, provide as much detail as possible to help understand and reproduce the problem.
-- **Use Appropriate Labels**: Labels help categorize and track issues more easily.
-- **Link Related Issues**: If the issue is related to other existing issues, reference them using `#issue_number`. Example: `#23`.
+- **Be clear & concise**: Describe the problem simply
+- **Provide reproduction steps**: How can we reproduce it?
+- **Include environment**: Node version, OS, package manager
+- **Add context**: Screenshots, logs, or error messages help!
 
-If you have any questions, please reach out to the project maintainers.
+## Issue Templates
+
+We have simple templates for:
+- 🐛 **Bug Report**: For bugs and issues
+- 📚 **Documentation**: For docs problems
+
+Just fill them out and we'll help! Thanks! 🙏

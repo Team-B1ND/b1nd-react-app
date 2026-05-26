@@ -1,52 +1,167 @@
 ## b1nd-react-app
+
+**Version: 1.3.1** (Latest)
+
 # Overview
-b1nd-react-app is a template that allows you to quickly implement authentication-related functionality. This project is written in React and is configured with Axios and interceptors for efficient API communication. The project structure is extensible and can be used in various environments.
 
-## HOW TO USE?
+b1nd-react-app is a modern React boilerplate template powered by **Rsbuild** (default) or **Vite** for rapid development. It includes pre-configured authentication setup with Axios interceptors for seamless API communication. The project structure is extensible and optimized for both development and production environments.
 
-### START
+### Key Features
 
-You can start with `npx b1nd-react-app [projectname]`.
+⚡ **Rsbuild**: 5-10x faster build speed than Webpack (zero-config, zero setup)
+🚀 **Vite Alternative**: Sub-second HMR for alternative bundler choice
+🔐 **Auth Ready**: Built-in token management and axios interceptors
+📦 **Production Ready**: Optimized for both development and production builds
+🎯 **CLI**: Interactive setup with TypeScript/JavaScript and npm/yarn/pnpm/bun support
 
-1. `? Which bundler do you want to use?` - You can choose the bundler.
-❯   Default (No bundler)
-    Webpack (Recommended)
-    Vite
+## How to Use
 
-2. `? Which language do you want to use?` - Choose the language you want to use.
-❯   TypeScript
-    JavaScript
+### Quick Start
 
-3. `? Which package manager would you like to use?` - Choose your package manager.
-❯   npm
-    yarn
-    pnpm
-    bun
+Create a new project with a single command:
 
-4. `? Do you want to include Axios?` - Choose whether to include Axios with default settings.
-❯   Yes
-    No
+```bash
+npx b1nd-react-app my-app
+```
+
+Or use the current directory:
+
+```bash
+npx b1nd-react-app .
+```
+
+### Interactive Setup
+
+The CLI will guide you through these selections:
+
+1. **Bundler Selection** (Choose your build tool):
+   ```
+   ❯ Rsbuild (Recommended, Fastest) ⚡
+     Vite
+   ```
+
+2. **Language Selection** (Choose your language):
+   ```
+   ❯ TypeScript
+     JavaScript
+   ```
+
+3. **Package Manager Selection** (Choose your package manager):
+   ```
+   ❯ npm
+     yarn
+     pnpm
+     bun
+   ```
+
+4. **Axios Integration** (Include API client):
+   ```
+   ❯ Yes (Recommended)
+     No
+   ```
+
+### Command-Line Options
+
+You can also use CLI flags to skip the prompts:
+
+```bash
+# Use Rsbuild with TypeScript
+npx b1nd-react-app my-app --bundler rsbuild --language ts
+
+# Use Vite with JavaScript
+npx b1nd-react-app my-app --bundler vite --language js
+
+# Skip dependency installation
+npx b1nd-react-app my-app --skip-install
+```
 
 
-### HOW TO INSTALL
+### Getting Started After Project Creation
+
+After creating your project, navigate to the directory and start development:
+
+```bash
+cd my-app
+
+# Start development server
+npm run dev      # or yarn dev, pnpm dev, bun dev
+
+# Build for production
+npm run build    # or yarn build, pnpm build, bun build
+
+# Preview production build locally
+npm run preview  # or yarn preview, pnpm preview, bun preview
+
+# Run linting
+npm run lint     # or yarn lint, pnpm lint, bun lint
+
+# Format code with Prettier
+npm run format   # or yarn format, pnpm format, bun format
+```
+
+### Installation Speed Comparison
+
+| Bundler | Install Time | Build Time | HMR |
+|---------|-------------|-----------|-----|
+| Rsbuild | ~30-60s | 5-10x faster | 3-4s |
+| Vite | ~30-60s | Fast | <1s |
+| Webpack | ~2-3 min | Baseline | 9-10s |
+| CRA (Deprecated) | ~2-3 min | Slow | 10s+ |
 
 
 
 
-### USER EDITING POINT
+### Configuration (For Axios Templates)
 
-1. Please change the `server` property in `src/config/config.json` to your API BASE_URL.
-2. Change the refresh endpoint in line 32 of `src/libs/responseInterceptor.ts` to your API endpoint. Also, modify the BODY in line 33 to match your API’s request body.
-3. Change the login URL in line 12 of `src/libs/requestInterceptor.ts` to your login URL.
+If you selected **Axios** during setup, you'll need to configure the following:
 
-# ETC
-* If you do not need or have a different token usage process, you can delete the token-related folders.
+1. **API Base URL** (`src/config/config.json`):
+   ```json
+   {
+     "server": "https://your-api-baseurl.com"
+   }
+   ```
 
-1. Tokens are divided into `accessToken` and `refreshToken`, and they are stored in cookies as `accessToken` and `refreshToken`.
-2. To store tokens, use `token.setToken({TOKEN_CONSTANTS}, [value]);`. For example: `token.setToken(ACCESS_TOKEN_KEY, res.data.data.accessToken);`
-3. This folder structure is designed for developing React projects using the FLUX architecture. [What is FLUX?](https://velog.io/@alskt0419/FLUX-%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90%EB%9E%80)
-4. For communication with the server, using `react-query` will make it even more convenient.
-5. You can use either `webpack` or `vite` as the bundler.
+2. **Token Refresh Endpoint** (`src/libs/axios/responseInterceptor.ts`):
+   - Update the `/refresh` endpoint to match your API's token refresh route
+   - Modify the request body structure to match your API's requirements
+
+3. **Login URL** (`src/libs/axios/requestInterceptor.ts`):
+   - Change the default `/login` path to your application's login route
+   - This path is used when tokens are invalid
+
+4. **Token Storage** (`src/libs/token/token.ts`):
+   - By default, tokens are stored in browser cookies
+   - You can modify this to use localStorage, sessionStorage, or other methods
+
+## Notes
+
+### Token Management (Axios Templates)
+
+- **Token Storage**: By default, tokens are stored in browser cookies
+- **Token Types**: `accessToken` (short-lived) and `refreshToken` (long-lived)
+- **Setting Tokens**: Use `Token.setToken(key, value)` after authentication
+  ```typescript
+  import Token from '@libs/token/token';
+  import { ACCESS_TOKEN_KEY } from '@constants/token.constants';
+
+  // After login
+  Token.setToken(ACCESS_TOKEN_KEY, response.data.accessToken);
+  ```
+- **Automatic Refresh**: Axios interceptors automatically handle token refresh on 401 errors
+
+### Architecture Patterns
+
+- This boilerplate follows a **component-based architecture** optimized for React
+- Designed to work well with modern state management solutions (React Context, Zustand, Redux)
+- Works seamlessly with **React Query** for server state management
+- Path aliases (@components, @hooks, etc.) are pre-configured for cleaner imports
+
+### Optional Customizations
+
+- **Remove Axios**: If you don't need Axios, delete `src/libs/` and `src/config/` directories
+- **Token Storage**: Replace cookie storage in `src/libs/token/token.ts` with localStorage or sessionStorage
+- **Styling**: Add CSS-in-JS libraries (styled-components, emotion) as needed
 
 
 
@@ -78,18 +193,39 @@ You can start with `npx b1nd-react-app [projectname]`.
 
 
 
-## Framework-Specific Architectures
- # REACT
- For React, the project follows a component-based architecture that utilizes hooks, context, and state management as necessary. Here is the general structure for React
-[GOTO-ARCHITECTURES](https://github.com/Team-B1ND/b1nd-react-app/blob/main/docs/REACT_ARCHITECTURES.md)
+## Bundler-Specific Architectures
 
- # VITE
- Vite is a build tool that focuses on speed and performance. The structure is similar to React, but it is optimized for fast development and builds. Here is the general structure for a Vite project
-[GOTO-ARCHITECTURES](https://github.com/Team-B1ND/b1nd-react-app/blob/main/docs/VITE_ARCHITECTURES.md)
+### React
+The project follows a **component-based architecture** with React hooks, context, and optional state management.
 
-# WEBPACK
- Webpack is a bundler that requires more configuration but is extremely flexible. The structure includes configurations for handling assets, code splitting, and optimization.
-[GOTO-ARCHITECTURES](https://github.com/Team-B1ND/b1nd-react-app/blob/main/docs/WEBPACK_ARCHITECTURES.md)
+📖 [React Architecture Guide](https://github.com/Team-B1ND/b1nd-react-app/blob/main/docs/REACT_ARCHITECTURES.md)
+
+### Rsbuild (Recommended)
+
+**Rsbuild** is a blazing-fast build tool powered by Rspack (Rust-based). It offers:
+- ⚡ 5-10x faster builds than Webpack
+- 🚀 Zero-config setup with sensible defaults
+- 🔄 Consistent Dev/Production builds
+- 📦 Automatic code splitting and chunking
+- ✅ Full Webpack plugin compatibility
+
+The Rsbuild template includes optimized configuration for production builds with chunk splitting and minification.
+
+📖 [Rsbuild Architecture Guide](https://github.com/Team-B1ND/b1nd-react-app/blob/main/docs/RSBUILD_ARCHITECTURES.md)
+📚 [Official Rsbuild Docs](https://rsbuild.rs/)
+
+### Vite
+
+**Vite** is a modern bundler focused on speed with:
+- ⚡ Sub-second HMR (Hot Module Replacement)
+- 🚀 Fast cold starts
+- 📦 Optimized production builds
+- 🎯 Great developer experience
+
+The Vite template provides an alternative for developers who prefer Vite's approach.
+
+📖 [Vite Architecture Guide](https://github.com/Team-B1ND/b1nd-react-app/blob/main/docs/VITE_ARCHITECTURES.md)
+📚 [Official Vite Docs](https://vite.dev/)
 
 
 

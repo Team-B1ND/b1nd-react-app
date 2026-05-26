@@ -19,14 +19,14 @@ program
   .description("Create a new project with B1ND Boilerplate")
   .version(pkg.version)
   .argument("[directory]", "Project directory (use '.' for current directory)")
-  .option("--bundler <bundler>", "Choose bundler: default, vite, webpack")
+  .option("--bundler <bundler>", "Choose bundler: rsbuild, vite")
   .option("--language <language>", "Choose language: ts, js")
   .option("--package-manager <pm>", "Choose package manager: npm, yarn, pnpm, bun")
   .option("--axios", "Include Axios")
   .option("--no-axios", "Exclude Axios")
   .option("--skip-install", "Skip dependency installation", false)
   .action(async (directory: string | undefined, options: ProgramOptions) => {
-    
+
     if (!directory && process.argv.length === 2) {
       console.log(green("🚀 B1ND React App Creator"));
       console.log();
@@ -37,7 +37,7 @@ program
       console.log("Examples:");
       console.log(`  ${cyan("npx b1nd-react-app my-app")}`);
       console.log(`  ${cyan("npx b1nd-react-app .")}`);
-      console.log(`  ${cyan("npx b1nd-react-app my-app --bundler vite --language js")}`);
+      console.log(`  ${cyan("npx b1nd-react-app my-app --bundler rsbuild --language ts")}`);
       console.log();
       program.help();
       return;
@@ -46,7 +46,6 @@ program
     await createProject(directory || ".", options);
   });
 
-// 에러 처리
 program.on('command:*', () => {
   console.error('Invalid command: %s\nSee --help for a list of available commands.', program.args.join(' '));
   process.exit(1);
