@@ -44,8 +44,23 @@ export async function createProject(dir: string, options: ProjectOptions = {}) {
   }
   console.log();
 
-  const answers = await prompts([
-    {
+  const validBundlers = ["default", "webpack", "vite"];
+  const validLanguages = ["ts", "js"];
+  const validPkgManagers = ["npm", "yarn", "pnpm", "bun"];
+
+  const validate = (label: string, value: string | undefined, allowed: string[]) => {
+    if (value && !allowed.includes(value)) {
+      console.log(red("✖") + ` Invalid --${label} "${value}". Allowed: ${allowed.join(", ")}`);
+      process.exit(1);
+    }
+  };
+  validate("bundler", options.bundler, validBundlers);
+  validate("language", options.language, validLanguages);
+  validate("package-manager", options.packageManager, validPkgManagers);
+
+  const questions: prompts.PromptObject[] = [];
+  if (!options.bundler) {
+    questions.push({
       type: "select",
       name: "bundler",
       message: "Choose a bundler:",
@@ -54,52 +69,65 @@ export async function createProject(dir: string, options: ProjectOptions = {}) {
         { title: "Webpack", value: "webpack" },
         { title: "Vite", value: "vite" },
       ],
-    },
-    {
-      type: "select", 
+    });
+  }
+  if (!options.language) {
+    questions.push({
+      type: "select",
       name: "language",
       message: "Choose a language:",
       choices: [
         { title: "TypeScript", value: "ts" },
         { title: "JavaScript", value: "js" },
       ],
-    },
-    {
+    });
+  }
+  if (!options.packageManager) {
+    questions.push({
       type: "select",
-      name: "packageManager", 
+      name: "packageManager",
       message: "Choose a package manager:",
-      choices: ["npm", "yarn", "pnpm", "bun"].map(p => ({ title: p, value: p })),
-    },
-    {
+      choices: validPkgManagers.map(p => ({ title: p, value: p })),
+    });
+  }
+  if (typeof options.axios !== "boolean") {
+    questions.push({
       type: "confirm",
       name: "useAxios",
       message: "Include Axios?",
       initial: true,
-    },
-  ], {
-    onCancel: () => {
-      console.log();
-      console.log(red("✖") + " Operation cancelled");
-      process.exit(0);
-    }
-  });
+    });
+  }
 
-  // 사용자가 중간에 취소한 경우
-  if (!answers.bundler) {
+  const answers = questions.length > 0
+    ? await prompts(questions, {
+        onCancel: () => {
+          console.log();
+          console.log(red("✖") + " Operation cancelled");
+          process.exit(0);
+        },
+      })
+    : ({} as Record<string, unknown>);
+
+  const bundler = (options.bundler ?? (answers.bundler as string | undefined));
+  const language = (options.language ?? (answers.language as string | undefined));
+  const useAxios = typeof options.axios === "boolean" ? options.axios : (answers.useAxios as boolean | undefined);
+
+  if (!bundler || !language || typeof useAxios !== "boolean") {
     console.log();
     console.log(red("✖") + " Operation cancelled");
     process.exit(0);
   }
 
-  const packageManager = answers.packageManager || getPkgManager();
+  const packageManager = (options.packageManager ?? (answers.packageManager as string | undefined) ?? getPkgManager());
 
   await installTemplate({
     appName: projectName,
     root: resolvedPath,
-    bundler: answers.bundler,
-    language: answers.language,
-    useAxios: answers.useAxios,
+    bundler: bundler as "default" | "vite" | "webpack",
+    language: language as "ts" | "js",
+    useAxios,
     packageManager,
-    skipInstall: false,
+    skipInstall: options.skipInstall ?? false,
   });
 }

@@ -14,12 +14,18 @@ class Token {
   }
 
   public setToken(key: string, value: string): string {
-    const cookie = (document.cookie = `${key} = ${value}`);
+    const cookie = (document.cookie = `${key}=${encodeURIComponent(value)}; path=/`);
     return cookie;
   }
 
   public clearToken() {
-    document.cookie = "max-age=0";
+    const cookies = document.cookie.split("; ");
+    for (const cookie of cookies) {
+      const [cookieKey] = cookie.split("=");
+      if (cookieKey) {
+        document.cookie = `${cookieKey}=; path=/; max-age=0`;
+      }
+    }
   }
 }
 

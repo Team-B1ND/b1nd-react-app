@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "postinstall": "mv gitignore .gitignore || true"
+    "preview": "vite preview"
   },
   "dependencies": {
     "path": "^0.12.7",

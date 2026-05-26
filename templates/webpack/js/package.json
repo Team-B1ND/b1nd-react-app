@@ -17,8 +17,7 @@
     "dev": "webpack serve --config webpack.development.js --progress",
     "build": "webpack --config webpack.production.js --progress",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "postinstall": "mv gitignore .gitignore || true"
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "crypto-browserify": "^3.12.0",
