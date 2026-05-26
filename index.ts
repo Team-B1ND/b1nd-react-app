@@ -1,6 +1,8 @@
 import { Command } from "commander";
 import { createProject } from "./helpers/create";
 import { green, cyan } from "picocolors";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const pkg = require("./package.json");
 
 interface ProgramOptions {
   bundler?: string;
@@ -15,12 +17,13 @@ const program = new Command();
 program
   .name("b1nd-react-app")
   .description("Create a new project with B1ND Boilerplate")
-  .version("1.0.0")
+  .version(pkg.version)
   .argument("[directory]", "Project directory (use '.' for current directory)")
-  .option("--bundler <bundler>", "Choose bundler: default, vite, webpack", "default")
-  .option("--language <language>", "Choose language: ts, js", "ts")
+  .option("--bundler <bundler>", "Choose bundler: default, vite, webpack")
+  .option("--language <language>", "Choose language: ts, js")
   .option("--package-manager <pm>", "Choose package manager: npm, yarn, pnpm, bun")
-  .option("--axios", "Include Axios", false)
+  .option("--axios", "Include Axios")
+  .option("--no-axios", "Exclude Axios")
   .option("--skip-install", "Skip dependency installation", false)
   .action(async (directory: string | undefined, options: ProgramOptions) => {
     
