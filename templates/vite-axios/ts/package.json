@@ -7,14 +7,14 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "postinstall": "mv gitignore .gitignore || true"
+    "preview": "vite preview"
   },
   "dependencies": {
     "axios": "^1.7.7",
-    "path": "^0.12.7",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "styled-components": "^6.1.13",
+    "styled-reset": "^4.5.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
