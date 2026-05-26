@@ -30,7 +30,7 @@ const ResponseHandler = async (error: AxiosError) => {
 
       try {
         const { data: newAccessToken } = await axios.post(`${CONFIG.server}/refresh`, {
-          refreshToken: usingAccessToken,
+          refreshToken: usingRefreshToken,
         }); //CHANGE YOUR API URL && BODY VALUE
         customAxios.defaults.headers.common[REQUEST_TOKEN_KEY] = `Bearer ${newAccessToken}`;
 

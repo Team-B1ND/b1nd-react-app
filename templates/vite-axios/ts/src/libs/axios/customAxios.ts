@@ -13,7 +13,7 @@ const axiosRequestConfig: AxiosRequestConfig = {
 
 const customAxios = axios.create(axiosRequestConfig);
 
-customAxios.interceptors.request.use(requestInterceptor as any, (err) => Promise.reject(err));
+customAxios.interceptors.request.use(requestInterceptor, (err) => Promise.reject(err));
 
 customAxios.interceptors.response.use((res) => res, ResponseHandler);
 
